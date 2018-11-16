@@ -1,0 +1,63 @@
+ext {
+    android = [
+            compileSdkVersion: 27,
+            minSdkVersion    : 15,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0." + releaseTime()
+    ]
+
+    version = [
+            supportLibraryVersion: "27.1.1",
+            okhttpVersion        : "3.9.0",
+            retrofitVersion      : "2.3.0",
+            butterknifeVersion   : "8.8.1",
+            daggerVersion        : "2.15",
+            leakcanaryVersion    : "1.5.4"
+    ]
+
+    dependencies = [
+            // base
+            "appcompat-v7"            : "com.android.support:appcompat-v7:${version["supportLibraryVersion"]}",
+            "design"                  : "com.android.support:design:${version["supportLibraryVersion"]}",
+            "support-v4"              : "com.android.support:support-v4:${version["supportLibraryVersion"]}",
+
+            // net
+            "okhttp"                  : "com.squareup.okhttp3:okhttp:${version["okhttpVersion"]}",
+            "logging-interceptor"     : "com.squareup.okhttp3:logging-interceptor:${version["okhttpVersion"]}",
+            "retrofit"                : "com.squareup.retrofit2:retrofit:${version["retrofitVersion"]}",
+            "converter-gson"          : "com.squareup.retrofit2:converter-gson:${version["retrofitVersion"]}",
+            "adapter-rxjava2"         : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitVersion"]}",
+
+            // rx
+            "rxjava"                  : "io.reactivex.rxjava2:rxjava:2.1.17",
+            "rxandroid"               : "io.reactivex.rxjava2:rxandroid:2.0.2",
+
+            // other
+            "leakcanary-android"      : "com.squareup.leakcanary:leakcanary-android:${version["leakcanaryVersion"]}",
+            "leakcanary-android-no-op": "com.squareup.leakcanary:leakcanary-android-no-op:${version["leakcanaryVersion"]}",
+
+            // bugly
+            "crashreport"             : "com.tencent.bugly:crashreport:2.6.6.1",
+            "nativecrashreport"       : "com.tencent.bugly:nativecrashreport:3.3.1",
+
+            // test
+            "espresso-core"           : "com.android.support.test.espresso:espresso-core:3.0.2",
+            "junit"                   : "junit:junit:4.12",
+            "runner"                  : "com.android.support.test:runner:1.0.2",
+
+            // dagger
+            "dagger"                  : "com.google.dagger:dagger:${version["daggerVersion"]}",
+            "dagger-compiler"         : "com.google.dagger:dagger-compiler:${version["daggerVersion"]}",
+            "dagger-android"          : "com.google.dagger:dagger-android:${version["daggerVersion"]}",
+            "dagger-android-support"  : "com.google.dagger:dagger-android-support:${version["daggerVersion"]}",
+            "dagger-android-processor": "com.google.dagger:dagger-android-processor:${version["daggerVersion"]}",
+            "javax_annotation"        : "org.glassfish:javax.annotation:10.0-b28",
+    ]
+
+
+}
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("Asia/Shanghai"))
+}

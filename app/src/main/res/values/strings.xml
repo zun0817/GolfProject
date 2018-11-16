@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GolfProject</string>
+
+    <string name="http_unknown">未知错误</string>
+    <string name="http_parse_error">解析数据出错</string>
+    <string name="http_connect_timeout">服务器连接超时</string>
+
+</resources>
